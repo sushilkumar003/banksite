@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.navbar-brand img {
+    border-radius: 10%;
+    width: 100px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #f8c471;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #555;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+/* WhatsApp link styling */
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+}
+
+.whatsapp-logo {
+    width: 20px;
+    margin-right: 8px;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.btn-explore {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-explore:hover {
+    background-color: #0056b3;
+}
+
+/* Calculator Styling */
+.calculator-header h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.calculator-tabs .nav-tabs .nav-link {
+    color: #007bff;
+}
+
+.calculator-tabs .nav-tabs .nav-link.active {
+    color: #495057;
+    font-weight: bold;
+}
+
+.calculator-body {
+    padding: 20px;
+}
+
+.emi-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+/* Slider */
+.slider-label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.form-range {
+    width: 80%;
+}
+
+.slider-value {
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .whatsapp-link {
+        justify-content: center;
+    }
+
+    .btn-explore {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .card-img-top {
+        height: 150px;
+    }
+
+    .calculator-tabs .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-range {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        margin-right: 10px;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+
+    .card-img-top {
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .btn-explore {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Primary Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="bank_loan.svg" alt="Bank Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="#">Our History</a></li>
+                        <li><a class="dropdown-item" href="#">Mission & Vision</a></li>
+                        <li><a class="dropdown-item" href="#">Leadership</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <li><a class="dropdown-item" href="#">Savings Account</a></li>
+                        <li><a class="dropdown-item" href="#">Loans</a></li>
+                        <li><a class="dropdown-item" href="#">Credit Cards</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Download Forms</a></li>
+                <li class="nav-item"><a class="nav-link" href="internet_banking.html">Internet Banking</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Secondary Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSecondary" aria-controls="navbarSecondary" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSecondary">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Fees and Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="PNB_Apps.html">PNB Apps</a></li>
+                <li class="nav-item"><a class="nav-link" href="calculator.html">Calculator</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tenders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Public Notices</a></li>
+                <li class="nav-item whatsapp-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp">
+                    <a class="nav-link" href="https://wa.me/9264092640" target="_blank">Hi to 9264092640</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Content and Calculators -->
+<div class="container mt-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Calculator</li>
+        </ol>
+    </nav>
+
+    <!-- Calculators Section -->
+    <div class="row">
+        <!-- Left Column with Cards -->
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="KCC_Eligibility_Calculator.png" class="card-img-top" alt="KCC Eligibility Calculator">
+                <div class="card-body text-center">
+                    <h5 class="card-title">KCC Eligibility Calculator</h5>
+                    <a href="#" class="btn btn-explore">Explore</a>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <img src="bank_loan.svg" class="card-img-top" alt="Loan Eligibility for Home & Car Loan">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Loan Eligibility For Home & Car Loan</h5>
+                    <a href="#" class="btn btn-explore">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column with Calculator -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="calculator-header text-center">
+                    <h5>Amount Calculator</h5>
+                </div>
+                <div class="calculator-tabs">
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">EMI Calculator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Fixed Deposit Calculator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Recurring Deposit Calculator</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="calculator-body text-center">
+                    <p>Monthly Loan EMI (Approx.):</p>
+                    <p class="emi-value">2076</p>
+
+                    <div class="mb-3">
+                        <label class="slider-label" for="loanAmount">Loan Amount</label>
+                        <input type="range" class="form-range" id="loanAmount" min="0" max="200000" value="100000">
+                        <div class="slider-value">100000</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="slider-label" for="rateOfInterest">Rate Of Interest</label>
+                        <input type="range" class="form-range" id="rateOfInterest" min="0" max="20" value="9">
+                        <div class="slider-value">9</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="slider-label" for="loanPeriod">Period (In Months)</label>
+                        <input type="range" class="form-range" id="loanPeriod" min="0" max="240" value="60">
+                        <div class="slider-value">60</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Website with Two Navbars and Slider</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Custom CSS for hover effect and alignment */
+        .navbar-nav {
+            margin-left: auto; /* Right-align the navbar items */
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            color: #007bff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #1abc9c;
+            color: white !important;
+        }
+
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .whatsapp-logo {
+            width: 25px;
+            margin-right: 5px;
+        }
+
+        /* Custom styles for the carousel */
+        .carousel-item img {
+            width: 100%;
+            height: 300px; /* Set a fixed height for larger images */
+            object-fit: cover; /* Cover the area without distorting the image */
+        }
+
+        
+    .whats-new-box, .apply-online-box {
+        background-color: #ffc107;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 10px;
+    }
+    .whats-new-box h5, .apply-online-box h3 {
+        font-size: 30px;
+        text-align: center;
+        font-weight: bold;
+        color: #d32f2f;
+    }
+    .scrolling-content {
+        height: 520px;
+        overflow: hidden;
+        position: relative;
+    }
+    .scrolling-content ul {
+        position: absolute;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        animation: scrollUp 10s linear infinite;
+    }
+    .scrolling-content li {
+        padding: 10px;
+    }
+    @keyframes scrollUp {
+        0% { top: 100%; }
+        100% { top: -100%; }
+    }
+    .scrolling-content:hover ul {
+        animation-play-state: paused;
+    }
+    .form-control, .form-select {
+        border-radius: 30px;
+    }
+    .btn-submit {
+        background-color: #8e44ad;
+        color: white;
+        border-radius: 30px;
+        padding: 10px;
+        width: 100%;
+    }
+    .captcha {
+        display: flex;
+        align-items: center;
+    }
+    .captcha img {
+        margin-right: 10px;
+    }
+    .captcha-refresh {
+        cursor: pointer;
+    }
+    .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .product-card {
+            width: 45%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            margin-top:   
+ 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-card p {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size:14px;
+        }
+        footer {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer li {
+            margin: 10px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        @media (min-width: 768px) {
+            footer nav {
+                justify-content: space-between;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Banking Site</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="#">Our History</a></li>
+                            <li><a class="dropdown-item" href="#">Mission & Vision</a></li>
+                            <li><a class="dropdown-item" href="#">Leadership</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <li><a class="dropdown-item" href="#">Savings Account</a></li>
+                            <li><a class="dropdown-item" href="#">Loans</a></li>
+                            <li><a class="dropdown-item" href="#">Credit Cards</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Download Forms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Internet Banking</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSecondary" aria-controls="navbarSecondary" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSecondary">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Fees and Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">PNB Apps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tenders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Public Notices</a></li>
+
+                    <li class="nav-item whatsapp-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp">
+                        <a class="nav-link" href="https://wa.me/9264092640" target="_blank">Hi to 9264092640</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slider (Carousel) -->
+    <div id="photoCarousel" class="carousel slide" data-bs-interval="4000" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="alide_1.jpg" class="d-block" alt="Photo 1">
+            </div>
+            <div class="carousel-item">
+                <img src="slide_4.jpg" class="d-block" alt="Photo 2">
+            </div>
+            <div class="carousel-item">
+                <img src="slide_3.jpg" class="d-block" alt="Photo 2">
+            </div>
+            <div class="carousel-item">
+                <img src="slide_2.jpg" class="d-block" alt="Photo 2">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- What's New Box -->
+        <div class="col-md-6">
+            <div class="whats-new-box">
+                <h5>What's New</h5>
+                <div class="scrolling-content">
+                    <ul>
+                        <li><h2>1 April 2024</h2><p>New Product Launching</p></li>
+                        <li><h2>5 April 2024</h2><p>Updated Terms and Conditions</p></li>
+                        <li><h2>5 April 2024</h2><p>Updated Terms and Conditions</p></li>
+                        <!-- Add more list items as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Apply Online Form -->
+        <div class="col-md-6">
+            <div class="apply-online-box">
+                <h3>Apply Online</h3>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="NAME" required>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" required>
+                            <option selected>Select Category</option>
+                            <option value="category1">Category 1</option>
+                            <option value="category2">Category 2</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Account Number" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Customer ID" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Mobile Number*" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Amount*" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Pincode - To Avail Service At*" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Enter the captcha code*" required>
+                    </div>
+                    <div class="mb-3 captcha">
+                        <img src="captcha.png" alt="Captcha">
+                        <a href="#" class="captcha-refresh"><i class="fa fa-refresh"></i></a>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-section">
+    <div class="product-card">
+        <img src="image1.jpg" alt="Cards">
+        <h3>Cards</h3>
+        <p>Rupay Select Debit Card Has Been Designed for Ultra HNI(High Networth Individuals) Customers.</p>
+        <button class="button">EXPLORE NOW <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <div class="product-card">
+        <img src="image2.jpg" alt="Loans">
+        <h3>Loans</h3>
+        <p>PNB Pride Housing Loan For Government Employees.</p>
+        <button class="button">EXPLORE NOW <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <div class="product-card">
+        <img src="image3.jpg" alt="Deposit">
+        <h3>Deposit</h3>
+        <p>Empowering you financially by securing your future with diversified deposit products.</p>
+        <button class="button">EXPLORE NOW <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <div class="product-card">
+        <img src="image4.jpg" alt="Digital Products">
+        <h3>Digital Products</h3>
+        <p>Available to customers registered for SMS Alert.</p>
+        <button class="button">EXPLORE NOW <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</div>
+ 
+<footer>
+    <nav>
+        <ul>
+            <li>Personal</li>
+            <li><a href="#">Deposit</a></li>
+            <li><a href="#">Loans</a></li>
+            <li><a href="#">Approved Housing Projects</a></li>
+            <li><a href="#">Apply For OTS In NPA Accounts</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><a href="#">Government Business</a></li>
+            <li><a href="#">Financial Inclusion</a></li>
+            <li><a href="#">Priority Sector</a></li>
+        </ul>
+        <ul>
+            <li>Corporate</li>
+            <li><a href="#">Corporate Loans</a></li>
+            <li><a href="#">Forex Services offered to Exporter and Importer</a></li>
+            <li><a href="#">Cash Management Services</a></li>
+            <li><a href="#">Gold Card Scheme for Exporters</a></li>
+        </ul>
+        <ul>
+            <li>International</li>
+            <li><a href="#">FX Retail Platform</a></li>
+            <li><a href="#">Libor Transition</a></li>
+            <li><a href="#">Schemes / Products / Services</a></li>
+            <li><a href="#">NRI Services</a></li>
+            <li><a href="#">Help Desk For Forex Services</a></li>
+            <li><a href="#">World Travel Card</a></li>
+            <li><a href="#">Foreign Office Details</a></li>
+            <li><a href="#">Trade Finance Redefined Portal</a></li>
+            <li><a href="#">Outward Remittance under LRS</a></li>
+        </ul>
+        <ul>
+            <li>Capital Services</li>
+            <li><a href="#">Depository Services</a></li>
+            <li><a href="#">Mutual Funds</a></li>
+            <li><a href="#">Merchant Banking</a></li>
+            <li><a href="#">ASBA</a></li>
+        </ul>
+        <ul>
+            <li>About Us</li>
+            <li><a href="#">Screen Reader Accessibility</a></li>
+            <li><a href="#">Disclaimer</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Locate Branch/ATM</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+        <ul>
+            <li>Important Links</li>
+            <li><a href="#">RBI</a></li>
+            <li><a href="#">RBI Kehta Hai</a></li>
+            <li><a href="#">SEBI</a></li>
+            <li><a href="#">IRDA</a></li>
+            <li><a href="#">SUM</a></li>
+            <li><a href="#">Integrity Pledge</a></li>
+            <li><a href="#">V-KYC</a></li>
+            <li><a href="#">PNB Apps</a></li>
+            <li><a href="#">UDGAM</a></li>
+            <li><a href="#">IBU GIFT City</a></li>
+        </ul>
+    </nav>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function highlightItem(item) {
+            // Remove 'active' class from all items
+            document.querySelectorAll('.scrolling-content li').forEach(function (li) {
+                li.classList.remove('active');
+            });
+
+            // Add 'active' class to the clicked item
+            item.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+s
